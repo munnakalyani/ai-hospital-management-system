@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Disease Prediction - AI Hospital</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fb;
+        }
+
+        /* Header */
+
+        .header {
+            background-color: #0d6efd;
+            color: white;
+
+            padding: 20px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background-color: white;
+            color: #0d6efd;
+
+            padding: 10px 18px;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+        }
+
+        /* Main */
+
+        .container {
+            max-width: 900px;
+
+            margin: 30px auto;
+
+            padding: 20px;
+        }
+
+        /* Title */
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .title h2 {
+            color: #333;
+
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        /* AI Box */
+
+        .prediction-box {
+
+            background-color: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .prediction-box h3 {
+
+            color: #0d6efd;
+
+            margin-bottom: 10px;
+        }
+
+        .description {
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+        /* Symptoms */
+
+        .symptoms {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .symptom {
+
+            border: 1px solid #ddd;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            background-color: #fafafa;
+        }
+
+        .symptom label {
+
+            display: block;
+
+            font-weight: bold;
+
+            color: #444;
+
+            margin-bottom: 10px;
+        }
+
+        .symptom select {
+
+            width: 100%;
+
+            padding: 11px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+            background-color: white;
+        }
+
+        /* Button */
+
+        .predict-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 7px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .predict-button:hover {
+
+            background-color: #0b5ed7;
+        }
+
+        /* Result */
+
+        .result {
+
+            margin-top: 30px;
+
+            padding: 25px;
+
+            background-color: #e8f5e9;
+
+            border-left: 5px solid #28a745;
+
+            border-radius: 7px;
+        }
+
+        .result h3 {
+
+            color: #198754;
+
+            margin-bottom: 10px;
+        }
+
+        .result p {
+
+            color: #333;
+
+            font-size: 18px;
+        }
+
+        /* Warning */
+
+        .warning {
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background-color: #fff3cd;
+
+            border: 1px solid #ffe69c;
+
+            border-radius: 7px;
+
+            color: #664d03;
+
+            font-size: 14px;
+
+        }
+
+        /* Mobile */
+
+        @media (max-width: 650px) {
+
+            .symptoms {
+
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1>
+            🏥 AI Hospital Management System
+        </h1>
+
+        <a href="/dashboard"
+           class="back">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+
+        <!-- Page Title -->
+
+        <div class="title">
+
+            <h2>
+                🤖 AI Disease Prediction
+            </h2>
+
+            <p>
+                Machine learning based symptom analysis
+            </p>
+
+        </div>
+
+
+        <!-- Prediction Box -->
+
+        <div class="prediction-box">
+
+            <h3>
+                Enter Patient Symptoms
+            </h3>
+
+            <p class="description">
+                Select the symptoms experienced by the patient.
+                The machine learning model will provide a
+                prediction based on the selected symptoms.
+            </p>
+
+
+            <!-- Form -->
+
+            <form method="POST"
+                  action="/prediction">
+
+
+                <div class="symptoms">
+
+
+                    <!-- Fever -->
+
+                    <div class="symptom">
+
+                        <label>
+                            🌡️ Fever
+                        </label>
+
+                        <select name="fever">
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Cough -->
+
+                    <div class="symptom">
+
+                        <label>
+                            😷 Cough
+                        </label>
+
+                        <select name="cough">
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Headache -->
+
+                    <div class="symptom">
+
+                        <label>
+                            🤕 Headache
+                        </label>
+
+                        <select name="headache">
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Fatigue -->
+
+                    <div class="symptom">
+
+                        <label>
+                            😴 Fatigue
+                        </label>
+
+                        <select name="fatigue">
+
+                            <option value="0">
+                                No
+                            </option>
+
+                            <option value="1">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Predict Button -->
+
+                <button
+                    type="submit"
+                    class="predict-button">
+
+                    🤖 Predict Condition
+
+                </button>
+
+
+            </form>
+
+
+            <!-- Result -->
+
+            {% if result %}
+
+            <div class="result">
+
+                <h3>
+                    AI Prediction Result
+                </h3>
+
+                <p>
+                    Possible condition:
+                    <strong>{{ result }}</strong>
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- Warning -->
+
+            <div class="warning">
+
+                ⚠️ <strong>Important:</strong>
+
+                This machine learning prediction is intended
+                for educational and decision-support purposes
+                only. It is not a medical diagnosis and should
+                not replace evaluation by a qualified healthcare
+                professional.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
