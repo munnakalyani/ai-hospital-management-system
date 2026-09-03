@@ -1,32 +1,18 @@
 import pandas as pd
-
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-
 import joblib
 
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestClassifier
 
-# Load dataset
-data = pd.read_csv("dataset/symptoms.csv")
+data = pd.read_csv("../dataset/symptoms.csv")
 
-
-# Input features
-X = data[
-    [
-        "fever",
-        "cough",
-        "headache",
-        "fatigue"
-    ]
-]
-
-
-# Target
+X = data.drop("disease", axis=1)
 y = data["disease"]
 
+encoder = LabelEncoder()
+y = encoder.fit_transform(y)
 
-# Split dataset
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -34,38 +20,14 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
-
-# Create machine learning model
 model = RandomForestClassifier(
     n_estimators=100,
     random_state=42
 )
 
-
-# Train model
 model.fit(X_train, y_train)
 
-
-# Test model
-predictions = model.predict(X_test)
-
-
-# Calculate accuracy
-accuracy = accuracy_score(
-    y_test,
-    predictions
-)
-
+joblib.dump(model, "disease_model.pkl")
+joblib.dump(encoder, "label_encoder.pkl")
 
 print("Model trained successfully!")
-print("Accuracy:", accuracy)
-
-
-# Save trained model
-joblib.dump(
-    model,
-    "model/disease_model.pkl"
-)
-
-
-print("Model saved successfully!")
