@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 import joblib
 import os
@@ -6,7 +5,8 @@ import sqlite3
 
 app = Flask(__name__)
 
-# AI model
+# ---------------- AI MODEL ----------------
+
 model = joblib.load(
     os.path.join("model", "disease_model.pkl")
 )
@@ -107,7 +107,7 @@ def appointments():
     )
 
 
-# ---------------- AI PREDICTION ----------------
+# ---------------- AI DISEASE PREDICTION ----------------
 
 @app.route("/prediction", methods=["GET", "POST"])
 def prediction():
@@ -143,7 +143,9 @@ def prediction():
     )
 
 
-# ---------------- RUN ----------------
+# ---------------- RUN APPLICATION ----------------
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+

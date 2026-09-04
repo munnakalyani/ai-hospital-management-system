@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Appointments - AI Hospital</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fb;
+        }
+
+        /* Header */
+
+        .header {
+            background-color: #0d6efd;
+            color: white;
+
+            padding: 20px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background-color: white;
+            color: #0d6efd;
+
+            padding: 10px 18px;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+        }
+
+        /* Main Container */
+
+        .container {
+            max-width: 1100px;
+
+            margin: 30px auto;
+
+            padding: 20px;
+        }
+
+        /* Title */
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #333;
+
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        /* Appointment Form */
+
+        .form-box {
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.1);
+
+            margin-bottom: 30px;
+        }
+
+        .form-box h3 {
+            margin-bottom: 20px;
+
+            color: #333;
+        }
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .form-group label {
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            padding: 12px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+        .form-group textarea {
+
+            resize: vertical;
+
+            min-height: 80px;
+        }
+
+        .full-width {
+
+            grid-column: 1 / -1;
+        }
+
+        .button {
+
+            margin-top: 20px;
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+        .button:hover {
+
+            background-color: #0b5ed7;
+        }
+
+        /* Appointment Table */
+
+        .table-box {
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .table-box h3 {
+
+            margin-bottom: 20px;
+
+            color: #333;
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        th {
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+        td {
+
+            padding: 12px;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+
+            background-color: #f5f5f5;
+        }
+
+        /* Status */
+
+        .confirmed {
+
+            color: green;
+
+            font-weight: bold;
+        }
+
+        .pending {
+
+            color: #f39c12;
+
+            font-weight: bold;
+        }
+
+        .cancelled {
+
+            color: red;
+
+            font-weight: bold;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+
+                grid-column: auto;
+            }
+
+            .header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+            }
+
+            .table-box {
+
+                overflow-x: auto;
+            }
+
+            table {
+
+                min-width: 700px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1>
+            🏥 AI Hospital Management System
+        </h1>
+
+        <a href="/dashboard"
+           class="back">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+
+        <!-- Page Title -->
+
+        <div class="title">
+
+            <h2>
+                Appointment Management
+            </h2>
+
+            <p>
+                Book and manage patient appointments.
+            </p>
+
+        </div>
+
+
+        <!-- Appointment Form -->
+
+        <div class="form-box">
+
+            <h3>
+                📅 Book New Appointment
+            </h3>
+
+
+            <form method="POST"
+                  action="/appointments">
+
+
+                <div class="form-grid">
+
+
+                    <!-- Patient -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Patient Name
+                        </label>
+
+                        <select
+                            name="patient"
+                            required>
+
+                            <option value="">
+                                Select Patient
+                            </option>
+
+                            <option value="John Smith">
+                                John Smith
+                            </option>
+
+                            <option value="Sarah Johnson">
+                                Sarah Johnson
+                            </option>
+
+                            <option value="Michael Brown">
+                                Michael Brown
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Doctor -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Doctor
+                        </label>
+
+                        <select
+                            name="doctor"
+                            required>
+
+                            <option value="">
+                                Select Doctor
+                            </option>
+
+                            <option value="Dr. John Smith">
+                                Dr. John Smith - Cardiology
+                            </option>
+
+                            <option value="Dr. Sarah Johnson">
+                                Dr. Sarah Johnson - Neurology
+                            </option>
+
+                            <option value="Dr. Michael Brown">
+                                Dr. Michael Brown - Orthopedics
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Date -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Appointment Date
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date"
+                            required>
+
+                    </div>
+
+
+                    <!-- Time -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Appointment Time
+                        </label>
+
+                        <input
+                            type="time"
+                            name="time"
+                            required>
+
+                    </div>
+
+
+                    <!-- Department -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Department
+                        </label>
+
+                        <select
+                            name="department"
+                            required>
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option value="Cardiology">
+                                Cardiology
+                            </option>
+
+                            <option value="Neurology">
+                                Neurology
+                            </option>
+
+                            <option value="Orthopedics">
+                                Orthopedics
+                            </option>
+
+                            <option value="General Medicine">
+                                General Medicine
+                            </option>
+
+                            <option value="Pediatrics">
+                                Pediatrics
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Appointment Type -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Appointment Type
+                        </label>
+
+                        <select
+                            name="type"
+                            required>
+
+                            <option value="">
+                                Select Type
+                            </option>
+
+                            <option value="Regular">
+                                Regular Visit
+                            </option>
+
+                            <option value="Follow-up">
+                                Follow-up
+                            </option>
+
+                            <option value="Emergency">
+                                Emergency
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Reason -->
+
+                    <div class="form-group full-width">
+
+                        <label>
+                            Reason for Visit
+                        </label>
+
+                        <textarea
+                            name="reason"
+                            placeholder="Enter reason for appointment">
+                        </textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="button">
+
+                    Book Appointment
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- Appointment List -->
+
+        <div class="table-box">
+
+            <h3>
+                📋 Appointment List
+            </h3>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Patient</th>
+
+                        <th>Doctor</th>
+
+                        <th>Department</th>
+
+                        <th>Date</th>
+
+                        <th>Time</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- Appointment 1 -->
+
+                    <tr>
+
+                        <td>1</td>
+
+                        <td>John Smith</td>
+
+                        <td>Dr. John Smith</td>
+
+                        <td>Cardiology</td>
+
+                        <td>2026-09-10</td>
+
+                        <td>10:00 AM</td>
+
+                        <td class="confirmed">
+                            Confirmed
+                        </td>
+
+                    </tr>
+
+
+                    <!-- Appointment 2 -->
+
+                    <tr>
+
+                        <td>2</td>
+
+                        <td>Sarah Johnson</td>
+
+                        <td>Dr. Sarah Johnson</td>
+
+                        <td>Neurology</td>
+
+                        <td>2026-09-11</td>
+
+                        <td>11:30 AM</td>
+
+                        <td class="pending">
+                            Pending
+                        </td>
+
+                    </tr>
+
+
+                    <!-- Appointment 3 -->
+
+                    <tr>
+
+                        <td>3</td>
+
+                        <td>Michael Brown</td>
+
+                        <td>Dr. Michael Brown</td>
+
+                        <td>Orthopedics</td>
+
+                        <td>2026-09-12</td>
+
+                        <td>02:00 PM</td>
+
+                        <td class="cancelled">
+                            Cancelled
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
