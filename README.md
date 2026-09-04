@@ -1,77 +1,91 @@
 # 🏥 AI Hospital Management System
 
-> A web-based hospital management system built with **Python, Flask, SQLite, HTML/CSS, and Machine Learning** to simplify hospital administration and provide AI-assisted disease prediction.
+A web-based **AI Hospital Management System** built with **Python, Flask, SQLite, HTML, CSS, and Machine Learning**.
 
-![AI Hospital Management System](screenshots/dashboard.png)
-
-## 📌 Overview
-
-The **AI Hospital Management System** is a full-stack web application designed to manage essential hospital operations through a simple and user-friendly interface.
-
-The system combines traditional hospital management features with a machine-learning-based disease prediction module.
-
-It provides dedicated sections for:
-
-* 👨‍⚕️ Doctor management
-* 👤 Patient management
-* 📅 Appointment management
-* 🤖 AI-based disease prediction
-* 📊 Hospital administration dashboard
-* 🗄️ SQLite database storage
-
-The project was developed as an academic/portfolio project to demonstrate practical skills in **Python, Flask, databases, web development, and machine learning integration**.
+The system provides hospital administration features such as doctor management, patient management, appointment scheduling, and AI-assisted disease prediction through a simple web interface.
 
 ---
 
-## ✨ Features
+## 🌐 Application Links
 
-### 📊 Hospital Dashboard
+> **Local Demo:** Start the Flask application first with `python app.py`.
 
-The dashboard provides a centralized overview of the hospital system.
+| Service          | Link                                                    |
+| ---------------- | ------------------------------------------------------- |
+| 🏠 Home          | [Open Home](http://127.0.0.1:5000/)                     |
+| 📊 Dashboard     | [Open Dashboard](http://127.0.0.1:5000/dashboard)       |
+| 👨‍⚕️ Doctors    | [Open Doctors](http://127.0.0.1:5000/doctors)           |
+| 👤 Patients      | [Open Patients](http://127.0.0.1:5000/patients)         |
+| 📅 Appointments  | [Open Appointments](http://127.0.0.1:5000/appointments) |
+| 🤖 AI Prediction | [Open AI Prediction](http://127.0.0.1:5000/prediction)  |
+
+### 🚀 Live Demo
+
+**Coming soon — the Flask application will be deployed online.**
+
+After deployment, replace the links above with your public application URL.
+
+For example:
+
+```text
+https://your-hospital-app.example.com
+```
+
+---
+
+# 📊 Dashboard
+
+The hospital dashboard provides a centralized overview of the system.
 
 It displays:
 
-* Number of doctors
-* Number of patients
-* Number of appointments
-* Recent appointments
-* Navigation to major hospital services
+* 👨‍⚕️ Number of doctors
+* 👤 Number of patients
+* 📅 Number of appointments
+* 📋 Recent appointments
+* 🔗 Navigation to hospital services
+
+### Dashboard Screenshot
 
 ![Hospital Dashboard](screenshots/dashboard.png)
 
 ---
 
-### 👨‍⚕️ Doctor Management
+# 👨‍⚕️ Doctors
 
-The doctor section provides information about doctors available in the hospital.
+The Doctors section displays information about available doctors.
 
-Each doctor can have information such as:
+Each doctor can have:
 
 * Doctor name
 * Specialization
 * Experience
 
+### Doctors Screenshot
+
 ![Doctors](screenshots/doctors.png)
 
 ---
 
-### 👤 Patient Management
+# 👤 Patients
 
-The patient section provides a simple interface for displaying patient information.
+The Patients section provides information about registered patients.
 
-Example patient information includes:
+Patient information can include:
 
 * Patient name
 * Age
 * Medical condition
 
+### Patients Screenshot
+
 ![Patients](screenshots/patients.png)
 
 ---
 
-### 📅 Appointment Management
+# 📅 Appointment Management
 
-The appointment module allows users to create and view hospital appointments.
+The appointment module allows users to create and view appointments.
 
 Appointment information includes:
 
@@ -82,34 +96,38 @@ Appointment information includes:
 
 Appointments are stored in a **SQLite database**.
 
+### Appointments Screenshot
+
 ![Appointments](screenshots/appointments.png)
 
 ---
 
-### 🤖 AI Disease Prediction
+# 🤖 AI Disease Prediction
 
-The system includes a machine-learning module that predicts a possible disease based on selected symptoms.
+The system includes a machine-learning-based disease prediction feature.
 
-The prediction system accepts symptoms such as:
+Users can enter/select symptoms such as:
 
-* Fever
-* Cough
-* Headache
-* Fatigue
+* 🌡️ Fever
+* 😷 Cough
+* 🤕 Headache
+* 😴 Fatigue
 
-The trained machine-learning model processes the selected symptoms and returns a predicted disease.
+The trained machine-learning model processes the symptoms and returns a predicted disease.
+
+### AI Prediction Screenshot
 
 ![AI Disease Prediction](screenshots/prediction.png)
 
-> **Note:** This prediction feature is intended for educational and demonstration purposes and should not be used as a substitute for professional medical diagnosis.
+> ⚠️ **Medical Disclaimer:** This AI prediction feature is developed for educational and demonstration purposes only. It is not a medical diagnostic tool and should not replace advice from a qualified healthcare professional.
 
 ---
 
-## 🧠 Machine Learning
+# 🧠 Machine Learning
 
-The project uses a trained machine-learning model for disease prediction.
+The machine-learning component uses a dataset containing symptoms and disease information.
 
-The model files are stored inside the `model/` directory:
+The trained model is stored using Joblib.
 
 ```text
 model/
@@ -118,9 +136,7 @@ model/
 └── train_model.py
 ```
 
-### Training Workflow
-
-The general workflow is:
+### Machine Learning Workflow
 
 ```text
 Symptoms Dataset
@@ -129,7 +145,7 @@ Data Preparation
        ↓
 Model Training
        ↓
-Trained Model
+Trained ML Model
        ↓
 Flask Application
        ↓
@@ -138,34 +154,33 @@ User Symptoms
 Disease Prediction
 ```
 
-The trained model is loaded by Flask using `joblib`.
+---
+
+# 🛠️ Technologies Used
+
+| Technology      | Purpose                         |
+| --------------- | ------------------------------- |
+| 🐍 Python       | Backend development             |
+| 🌐 Flask        | Web framework                   |
+| 🗄️ SQLite      | Database                        |
+| 🧠 Scikit-learn | Machine learning                |
+| 📦 Joblib       | Model loading and serialization |
+| 📄 HTML5        | Web page structure              |
+| 🎨 CSS3         | User interface                  |
+| 📊 CSV          | Dataset                         |
+| 🔧 Git          | Version control                 |
+| 🐙 GitHub       | Source code hosting             |
 
 ---
 
-## 🛠️ Technologies Used
-
-| Technology   | Purpose                   |
-| ------------ | ------------------------- |
-| Python       | Backend programming       |
-| Flask        | Web application framework |
-| SQLite       | Database management       |
-| HTML5        | Web page structure        |
-| CSS3         | User interface styling    |
-| Scikit-learn | Machine learning          |
-| Joblib       | Model serialization       |
-| CSV          | Dataset storage           |
-| Git & GitHub | Version control           |
-
----
-
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 ai-hospital-management-system/
 │
 ├── app.py
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 ├── .gitignore
 │
 ├── dataset/
@@ -175,6 +190,13 @@ ai-hospital-management-system/
 │   ├── disease_model.pkl
 │   ├── label_encoder.pkl
 │   └── train_model.py
+│
+├── screenshots/
+│   ├── dashboard.png
+│   ├── doctors.png
+│   ├── patients.png
+│   ├── appointments.png
+│   └── prediction.png
 │
 └── templates/
     ├── appointments.html
@@ -187,35 +209,35 @@ ai-hospital-management-system/
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/munnakalyani/ai-hospital-management-system.git
 ```
 
-### 2. Open the project directory
+## 2. Navigate to the Project
 
 ```bash
 cd ai-hospital-management-system
 ```
 
-### 3. Create a virtual environment
+## 3. Create a Virtual Environment
 
-Windows:
+### Windows
 
 ```bash
 python -m venv venv
 ```
 
-### 4. Activate the virtual environment
+## 4. Activate the Virtual Environment
 
 ```bash
 venv\Scripts\activate
 ```
 
-### 5. Install dependencies
+## 5. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -223,31 +245,29 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Running the Application
+# ▶️ Run the Application
 
-Start the Flask application:
+Start the Flask server:
 
 ```bash
 python app.py
 ```
 
-The application should start on:
+The application will normally run at:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-Open the address in your web browser.
+Open the URL in your browser.
 
 ---
 
-## 🗄️ Database
+# 🗄️ Database
 
-The application uses **SQLite** for appointment data.
+The application uses **SQLite** to store appointment information.
 
-The database is automatically initialized by the Flask application.
-
-The database contains an `appointments` table with fields such as:
+The database contains an appointments table with fields such as:
 
 ```text
 id
@@ -261,91 +281,111 @@ The local database file is excluded from Git using `.gitignore`.
 
 ---
 
-## 📊 Dataset
+# 📊 Dataset
 
-The machine-learning component uses the dataset stored at:
+The machine-learning dataset is located at:
 
 ```text
 dataset/symptoms.csv
 ```
 
-The dataset contains symptom information used to train the disease prediction model.
+The dataset is used by the model-training process to build the disease prediction model.
 
 ---
 
-## 🔐 Security & Privacy
+# 🔐 Security & Privacy
 
-This project is intended as an educational demonstration.
+This project is intended for educational and portfolio purposes.
 
-For a production hospital system, additional security features would be required, including:
+A production hospital management system would require additional security measures, including:
 
-* User authentication
-* Role-based access control
+* Secure authentication
 * Password hashing
-* Secure session management
+* Role-based access control
 * Input validation
+* HTTPS
 * Database security
-* Encryption of sensitive patient information
+* Encryption of sensitive data
 * Audit logging
-* Healthcare privacy and compliance controls
+* Secure session management
+* Healthcare privacy compliance
 
-No real patient information should be used in a public deployment of this project.
+**Do not upload real patient information to this public repository.**
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 Future Improvements
 
-Potential improvements include:
+Planned improvements could include:
 
-* 🔐 Secure doctor and patient login
-* 👥 Role-based authentication
+* 🔐 Doctor and patient authentication
+* 👥 Role-based access control
 * 📝 Patient medical history
 * 💊 Prescription management
-* 🧪 Laboratory report management
-* 💳 Billing and payment management
+* 🧪 Laboratory reports
+* 💳 Billing management
 * 📧 Appointment notifications
-* 📱 Responsive mobile interface
-* 📈 Hospital analytics and reports
+* 📱 Mobile-responsive design
+* 📈 Hospital analytics
 * ☁️ Cloud deployment
-* 🗃️ PostgreSQL/MySQL database support
-* 🔒 Improved security and privacy controls
-* 🧠 More advanced machine-learning models
+* 🗃️ PostgreSQL/MySQL support
+* 🧠 Improved machine-learning models
+* 🔒 Enhanced security and privacy
 
 ---
 
-## 🎯 Learning Objectives
+# 🎯 Project Objectives
 
 This project demonstrates practical experience with:
 
 * Python programming
 * Flask web development
-* REST-style routing
-* HTML/CSS interfaces
-* SQLite database operations
-* CRUD-style appointment management
-* Machine-learning model integration
-* Model serialization using Joblib
-* Git version control
-* GitHub project management
+* SQLite database integration
+* Machine-learning integration
+* HTML/CSS development
+* Appointment management
+* Model serialization
+* Git and GitHub
+* Project organization
 
 ---
 
-## 👩‍💻 Author
+# 👩‍💻 Author
 
-**munnakalyani**
+### munnakalyani
 
 GitHub:
 https://github.com/munnakalyani
 
----
-
-## 📄 License
-
-This project is intended primarily for educational and portfolio purposes.
-
-If you plan to distribute or modify the project as open-source software, consider adding an appropriate open-source license.
-## 📸 Screenshots
+Project Repository:
+https://github.com/munnakalyani/ai-hospital-management-system
 
 ---
 
+# ⭐ Support
 
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+---
+
+## 📸 Screenshots Gallery
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Doctors
+
+![Doctors](screenshots/doctors.png)
+
+### Patients
+
+![Patients](screenshots/patients.png)
+
+### Appointments
+
+![Appointments](screenshots/appointments.png)
+
+### AI Disease Prediction
+
+![AI Disease Prediction](screenshots/prediction.png)
