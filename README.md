@@ -69,6 +69,8 @@ This project demonstrates the integration of **web development, databases, and m
 ## 📊 1. Hospital Dashboard
 
 The dashboard provides a centralized view of hospital information.
+<img width="923" height="396" alt="image" src="https://github.com/user-attachments/assets/21f436c1-0ea3-4dc6-be46-29c5806796d6" />
+
 
 ### Dashboard includes:
 
@@ -97,6 +99,8 @@ Information can include:
 ### Doctors
 
 ![Doctors](screenshots/doctors.png)
+<img width="906" height="454" alt="image" src="https://github.com/user-attachments/assets/ef666a99-0b14-49a4-a1cf-7496d682370d" />
+
 
 ---
 
@@ -113,6 +117,8 @@ Information can include:
 ### Patients
 
 ![Patients](screenshots/patients.png)
+<img width="909" height="429" alt="image" src="https://github.com/user-attachments/assets/51e5edd3-5c18-4f86-bb65-87be37abf822" />
+
 
 ---
 
@@ -132,6 +138,8 @@ Appointments are stored in a **SQLite database**.
 ### Appointments
 
 ![Appointments](screenshots/appointments.png)
+<img width="923" height="410" alt="image" src="https://github.com/user-attachments/assets/5f3511c3-60ef-4784-9038-1e58eb042927" />
+
 
 ---
 
@@ -151,6 +159,8 @@ The trained machine-learning model processes the symptoms and returns a predicte
 ### AI Disease Prediction
 
 ![AI Disease Prediction](screenshots/prediction.png)
+<img width="888" height="378" alt="image" src="https://github.com/user-attachments/assets/28d95548-34ec-45bd-8ed1-c04a13dc5203" />
+
 
 > ⚠️ **Medical Disclaimer:** This feature is for educational and demonstration purposes only. It is not intended to provide medical diagnosis or replace professional medical advice.
 
