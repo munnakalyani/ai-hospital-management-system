@@ -140,9 +140,7 @@ Appointments are stored in a **SQLite database**.
 ![Appointments](screenshots/appointments.png)
 <img width="923" height="410" alt="image" src="https://github.com/user-attachments/assets/5f3511c3-60ef-4784-9038-1e58eb042927" />
 
-
 ---
-
 ## 🤖 5. AI Disease Prediction
 
 The application contains a machine-learning module for disease prediction.
