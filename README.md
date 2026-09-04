@@ -344,7 +344,22 @@ https://github.com/munnakalyani
 This project is intended primarily for educational and portfolio purposes.
 
 If you plan to distribute or modify the project as open-source software, consider adding an appropriate open-source license.
+## 📸 Screenshots
 
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Doctors
+![Doctors](screenshots/doctors.png)
+
+### Patients
+![Patients](screenshots/patients.png)
+
+### Appointments
+![Appointments](screenshots/appointments.png)
+
+### AI Disease Prediction
+![AI Disease Prediction](screenshots/prediction.png)
 ---
 
 
