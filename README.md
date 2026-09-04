@@ -153,6 +153,8 @@ Users can provide symptoms such as:
 * 😷 Cough
 * 🤕 Headache
 * 😴 Fatigue
+* <img width="612" height="408" alt="image" src="https://github.com/user-attachments/assets/03c4882a-f530-4525-9b46-226757f80f61" />
+
 
 The trained machine-learning model processes the symptoms and returns a predicted disease.
 
@@ -398,6 +400,8 @@ Possible future enhancements include:
 * 🗃️ PostgreSQL/MySQL support
 * 🧠 Improved AI prediction models
 * 🔒 Advanced security
+* <img width="612" height="444" alt="image" src="https://github.com/user-attachments/assets/a6086de7-aeea-42f5-a355-1c5752927fa1" />
+
 
 ---
 
