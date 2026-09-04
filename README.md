@@ -317,10 +317,6 @@ AI-generated predictions should not be used as a substitute for evaluation or ad
 👨‍💻 Author
 
 Munnakalyani
-
-GitHub:
-https://github.com/munnakalyani
-
 Project Repository:
 https://github.com/munnakalyani/ai-hospital-management-system
 
