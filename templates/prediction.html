@@ -1,0 +1,55 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>AI Disease Prediction</title>
+</head>
+
+<body>
+
+    <h1>AI Disease Prediction</h1>
+
+    <form method="POST" action="/prediction">
+
+        <label>Fever:</label>
+        <select name="fever">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <br><br>
+
+        <label>Cough:</label>
+        <select name="cough">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <br><br>
+
+        <label>Headache:</label>
+        <select name="headache">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <br><br>
+
+        <label>Fatigue:</label>
+        <select name="fatigue">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Predict Disease</button>
+
+    </form>
+
+    {% if result %}
+        <h2>Prediction: {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>
+```
