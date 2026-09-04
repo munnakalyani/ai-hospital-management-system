@@ -1,4 +1,5 @@
 # 🏥 AI Hospital Management System
+http://127.0.0.1:5000/dashboard
 
 A web-based **AI Hospital Management System** built with **Python, Flask, SQLite, HTML, CSS, and Machine Learning**.
 
