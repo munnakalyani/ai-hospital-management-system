@@ -119,8 +119,6 @@ https://ai-hospital-management-system-3q5i.onrender.com
   <img src="screenshots/ai-prediction.png" alt="AI Prediction" width="900">
 </p>
 <img width="888" height="378" alt="image" src="https://github.com/user-attachments/assets/2904d022-2cdf-4596-b4d3-7b0c1d11caa9" />
-
-
 ### 📊 Results
 
 <p align="center">
